@@ -1,0 +1,37 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Add a Book</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div align="center" class="col-md-12">
+		<h2>Add a Book</h2>
+		<div class="col-md-6">
+			<form action="#" th:action="@{/save-books}" th:object="${books}" method="post">
+				<div class="form-group">
+					<label for="Title">Title:</label> <input type="text" class="form-control" id="title" th:field="*{title}">
+					<p class="alert alert-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title">
+				</div>
+				<div class="form-group">
+					<label for="author">Author:</label> <input type="text" class="form-control" id="author" th:field="*{author}">
+					<p class="alert alert-danger" th:if="${#fields.hasErrors('author')}" th:errors="*{auhtor}">
+				</div>
+				<div class="form-group">
+					<label for="Category">Category:</label> <input type="text" class="form-control" id="category" th:field="*{category}">
+					<p class="alert alert-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}">
+				</div>
+				<div class="form-group">
+					<label for="publicationDate">Publication Date:</label> <input type="text" class="form-control" id="publicationDate" th:field="*{publicationDate}">
+					<p class="alert alert-danger" th:if="${#fields.hasErrors('publicationDate')}" th:errors="*{publicationDate}">
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
